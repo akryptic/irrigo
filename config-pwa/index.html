@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32 Config</title>
+    <link rel="manifest" href="manifest.json">
+    <script defer src="script.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        input, button { margin: 10px; padding: 10px; width: 80%; max-width: 300px; }
+        #status { font-weight: bold; color: blue; }
+    </style>
+</head>
+<body>
+    <h2>ESP32 Configuration</h2>
+    
+    <button id="connectBluetooth">Connect to ESP32</button>
+    <p id="status">Not connected</p>
+    
+    <input type="text" id="ssid" placeholder="WiFi SSID">
+    <input type="password" id="password" placeholder="WiFi Password">
+    <input type="text" id="server" placeholder="WebSocket Server">
+    <input type="number" id="port" placeholder="WebSocket Port">
+    <button id="sendConfig" disabled>Send Config</button>
+</body>
+</html>
