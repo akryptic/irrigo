@@ -1,0 +1,23 @@
+{
+  "Define Component": {
+    "prefix": "cmpd",
+    "body": [
+      "<!-- __NAME__ ${1:ComponentName} -->",
+      "${2:Component content here}",
+      "<!-- __END__ ${1:ComponentName} -->"
+    ],
+    "description": "Define a new HTML component"
+  },
+
+  "Use Component": {
+    "prefix": "cmpu",
+    "body": ["<!-- __COMPONENT__ ${1:ComponentName} () -->"],
+    "description": "Use a defined component"
+  },
+
+  "Import Components": {
+    "prefix": "cmpi",
+    "body": ["<!-- __IMPORT__ components -->"],
+    "description": "Import the components file"
+  }
+}

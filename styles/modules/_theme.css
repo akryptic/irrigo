@@ -1,0 +1,17 @@
+:root {
+  --primary: #539DF3;
+
+  --clr-bg: #ebecec;
+  --clr-surface: #fff;
+  --clr-text: #484C52;
+  --clr-txt-alter: gray;
+  --clr-border: rgb(0, 0, 0, 0.2);
+}
+
+html[data-theme="dark"] {
+  --clr-bg: #131417;
+  --clr-surface: #1D1F24;
+  --clr-text: #676D75;
+  --clr-txt-alter: whitesmoke;
+  --clr-border: rgba(255, 255, 255, 0.1);
+}

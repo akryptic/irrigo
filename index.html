@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="assets/icons/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>Home</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/home.css" />
+
+    <script src="scripts/service-worker/register-sw.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+  </head>
+  <body>
+    <app>
+      <header>
+        <logo>
+          <img src="/assets/icons/icon.png" alt="App Icon" />
+          <span>Irrigo</span>
+        </logo>
+        <!-- <div class="wrapper" > -->
+        <theme-toggle />
+        <!-- </div> -->
+      </header>
+
+      <main>
+        <section>
+          <top>
+            <i class="icon-info"></i>
+            <span>Information</span>
+          </top>
+          <content-view>
+            <!-- Temperature Card -->
+            <info-card>
+              <wrapper>
+                <i id="tm-ic" class="icon-thermometer-high"></i>
+                <p>
+                  Temperature
+                  <val id="tm-val"> -- </val>
+                  &deg;C
+                </p>
+              </wrapper>
+              <progress-bar>
+                <thumb id="tm-th"></thumb>
+              </progress-bar>
+            </info-card>
+            <!-- Humidity Card -->
+            <info-card>
+              <wrapper>
+                <i id="hm-ic" class="icon-wave-high"></i>
+                <p>
+                  Humidity
+                  <val id="hm-val"> -- </val>
+                  &percnt;
+                </p>
+              </wrapper>
+              <progress-bar>
+                <thumb id="hm-th"></thumb>
+              </progress-bar>
+            </info-card>
+            <!-- Water Level Card -->
+            <info-card>
+              <wrapper>
+                <i id="wl-ic" class="icon-drop-filled-high"></i>
+                <p>
+                  Water Level
+                  <val id="wl-val"> -- </val>
+                  &percnt;
+                </p>
+              </wrapper>
+              <progress-bar>
+                <thumb id="wl-th"></thumb>
+              </progress-bar>
+            </info-card>
+          </content-view>
+        </section>
+        <section>
+          <top>
+            <i class="icon-controls"></i>
+            <span>Pump Controls</span>
+            <button title="Start Pump" id="pump-toggle">
+              <i class="icon-play"></i>
+            </button>
+          </top>
+          <content-view>
+            <field>
+              <label> <i class="icon-tree"></i> Type </label>
+              <modes id="plant-type">
+                <button class="active" data-type="tree">Tree</button>
+                <button data-type="grass">Grass</button>
+                <button data-type="plant">Plant</button>
+              </modes>
+            </field>
+
+            <field>
+              <label> <i class="icon-pipe"></i> Irrigation Mode </label>
+              <modes id="irri-mode">
+                <button class="active" data-mode="flow">Flow</button>
+                <button data-mode="drip">Drip</button>
+                <button data-mode="sprinkle">Sprinkle</button>
+              </modes>
+            </field>
+            <field>
+              <label> <i class="icon-timer"></i>Flow Time </label>
+              <modes id="flow-time">
+                <button data-duration="30s">30s</button>
+                <button data-duration="1m">1m</button>
+                <button data-duration="5m">5m</button>
+                <button data-duration="10m">10m</button>
+                <button data-duration="20m">20m</button>
+                <button class="active" data-duration="30m">30m</button>
+              </modes>
+            </field>
+          </content-view>
+        </section>
+      </main>
+
+    </app>
+
+    <!-- Scripts -->
+    <script defer type="module" src="scripts/common.js"></script>
+    <script defer type="module" src="scripts/home.js"></script>
+  </body>
+</html>

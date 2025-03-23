@@ -1,0 +1,101 @@
+@font-face {
+  font-family: "icons";
+  src: url("../../assets/fonts/icons.ttf?e2metb") format("truetype"),
+    url("../../assets/fonts/icons.woff?e2metb") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icons" !important;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-controls:before {
+  content: "\e900";
+}
+.icon-controls-bold:before {
+  content: "\e901";
+}
+.icon-drop-filled-high:before {
+  content: "\e902";
+}
+.icon-drop-filled-low:before {
+  content: "\e903";
+}
+.icon-drop-filled-moderate:before {
+  content: "\e904";
+}
+.icon-guide:before {
+  content: "\e905";
+}
+.icon-home:before {
+  content: "\e906";
+}
+.icon-home-bold:before {
+  content: "\e907";
+}
+.icon-info:before {
+  content: "\e908";
+}
+.icon-menu:before {
+  content: "\e909";
+}
+.icon-moon:before {
+  content: "\e910";
+}
+.icon-pipe:before {
+  content: "\e911";
+}
+.icon-play:before {
+  content: "\e912";
+}
+.icon-stop:before {
+  content: "\e913";
+}
+.icon-sun:before {
+  content: "\e914";
+}
+.icon-thermometer-high:before {
+  content: "\e915";
+}
+.icon-thermometer-low:before {
+  content: "\e916";
+}
+.icon-thermometer-moderate:before {
+  content: "\e917";
+}
+.icon-timer:before {
+  content: "\e918";
+}
+.icon-tree:before {
+  content: "\e919";
+}
+.icon-wave-high:before {
+  content: "\e920";
+}
+.icon-wave-low:before {
+  content: "\e921";
+}
+.icon-wave-moderate:before {
+  content: "\e922";
+}
+.icon-wrench:before {
+  content: "\e923";
+}
+.icon-wrench-bold:before {
+  content: "\e924";
+}
+
