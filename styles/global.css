@@ -1,10 +1,10 @@
 /* Everything is self explanatory, So read and understand!
    (PS: added comments where actually needed :) ) 
 */
-@import url("./modules/_reset.css");
-@import url("./modules/_theme.css");
-@import url("./modules/_notify.css");
-@import url("./modules/_icons.css");
+@import url("./modules/reset.css");
+@import url("./modules/theme.css");
+@import url("./modules/notify.css");
+@import url("./modules/icons.css");
 
 @font-face {
   font-family: "Readex Pro";

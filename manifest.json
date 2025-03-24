@@ -3,6 +3,7 @@
   "short_name": "Irrigo",
   "description": "Automated plant monitoring and watering system",
   "start_url": "index.html",
+  "scope": "/irrigo",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1D1F24",
