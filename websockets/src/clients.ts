@@ -1,11 +1,17 @@
-import WebSocket from 'ws';
+import WebSocket from "ws";
 
 export let boardClient: WebSocket | null = null;
 export const webClients = new Set<WebSocket>();
 
-export function addClient(ws: WebSocket, role: 'board' | 'web-app') {
-  if (role === 'board') {
+export function addClient(ws: WebSocket, role: "board" | "web-app") {
+  if (role === "board") {
     boardClient = ws;
+    broadcastToWebApps(
+      JSON.stringify({
+        type: "board-connection-update",
+        payload: { connected: true },
+      })
+    );
   } else {
     webClients.add(ws);
   }
