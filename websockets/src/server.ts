@@ -1,12 +1,14 @@
 import WebSocket, { WebSocketServer } from "ws";
-import { handleMessage } from "./messageHandler";
 import { broadcastToWebApps, removeClient } from "./clients";
 import { setupHeartbeat, startHeartbeat } from "./heartbeat";
+import { handleMessage } from "./messageHandler";
 
 export function createWebSocketServer(port: number) {
   const wss = new WebSocketServer({ port });
 
   wss.on("connection", (ws: WebSocket) => {
+    //@ts-ignore
+    ws._socket.setKeepAlive(true, 8000);
     const roleRef = { role: null as string | null };
 
     setupHeartbeat(ws);
