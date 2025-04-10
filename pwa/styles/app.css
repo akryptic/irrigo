@@ -1,0 +1,297 @@
+/* Everything is self explanatory, So read and understand!
+   (PS: added comments where actually needed :) ) 
+*/
+@import url("./modules/reset.css");
+@import url("./modules/theme.css");
+@import url("./modules/notify.css");
+@import url("./modules/icons.css");
+
+/* Import the necessary font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Temporary class to easily debug elements */
+.dg {
+  border: 1px solid red;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: var(--clr-bg);
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+app {
+  height: 100dvh;
+  width: 100dvw;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+}
+
+app > header {
+  padding: 1.6rem 2.4rem;
+  background: var(--clr-surface);
+  display: flex;
+  justify-content: space-between;
+}
+
+app > header > span {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+app > header wrapper > * {
+  margin-left: 1.2rem;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+app > header wrapper > *:hover {
+  animation: float 1s ease infinite forwards;
+}
+
+app > header wrapper > *:active {
+  transform: scale(0.9);
+  animation: none;
+}
+
+app > main {
+  overflow-y: scroll;
+  margin: 1.6rem 0;
+  padding: 0 1.6rem;
+}
+
+section {
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  margin-top: 1.6rem;
+}
+
+section:first-child {
+  margin-top: 0;
+}
+
+section header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  font-weight: 600;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+section header .abs {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1.2rem;
+}
+
+section content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 1.2rem 0.8rem;
+}
+
+app > footer {
+  padding: 0.8rem 0;
+  text-align: center;
+  background: var(--clr-surface);
+}
+
+sensor-card {
+  background: var(--clr-surface);
+  padding: 1.2rem;
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  width: 100%;
+}
+
+icon-box {
+  padding: 1.2rem 1.6rem;
+  background: var(--clr-bg);
+  border-radius: 6px;
+}
+
+icon-box > i {
+  font-size: 3.2rem !important;
+  transition: color 0.5s ease;
+}
+
+sensor-card p:has(val) {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1ch;
+}
+
+val {
+  font-size: 2rem;
+}
+
+progress-bar {
+  background: rgba(255, 255, 255, 0.05);
+  display: block;
+  height: 6px;
+  border-radius: 6px;
+  width: 100%;
+  margin-top: 0.8rem;
+  overflow: hidden;
+}
+
+progress-bar > thumb {
+  display: block;
+  height: 100%;
+  width: 75%;
+  transition: width 1s ease;
+  background-color: var(--clr-red);
+}
+
+.ca,
+.ca > i {
+  font-size: 1.4rem;
+  color: var(--clr-green);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ca > i {
+  font-size: 1.6rem;
+}
+
+.ca:active,
+.ca:active > i {
+  transform: translateY(-50%) scale(0.9);
+}
+
+config-card {
+  background: var(--clr-surface);
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+config-card > wrapper {
+  display: flex;
+  padding: 0.4rem 1.2rem;
+  gap: 0.4rem;
+  align-items: center;
+  justify-content: center;
+}
+
+config-card > wrapper > opt {
+  font-size: 1.4rem;
+  padding: 0.4rem 0.8rem;
+  width: 100%;
+  text-align: center;
+  text-transform: capitalize;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.4);
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+config-card > wrapper > opt[disabled="disabled"] {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.65);
+  pointer-events: none;
+}
+
+config-card > wrapper > opt.active {
+  color: var(--clr-green);
+  background: color-mix(in srgb, var(--clr-green), transparent 80%);
+  font-weight: 600;
+}
+
+@keyframes float {
+  25% {
+    transform: translateY(-0.2rem);
+  }
+
+  50% {
+    transform: translateY(0.2rem);
+  }
+
+  100% {
+    transform: translateY(0rem);
+  }
+}
+
+@keyframes loading {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 6.2rem - 4.1rem);
+  margin-top: 6.2rem;
+  background: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  z-index: 998;
+  backdrop-filter: blur(4px);
+  display: none;
+}
+
+/* Don't look here ;_; */
+.l {
+  color: var(--clr-blue);
+}
+
+.m {
+  color: var(--clr-green);
+}
+
+.h {
+  color: var(--clr-red);
+}
+
+.bl {
+  background: var(--clr-blue);
+}
+
+.bm {
+  background: var(--clr-green);
+}
+
+.bh {
+  background: var(--clr-red);
+}
+
+pump-toggle:after {
+  content: "";
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 3px solid rgba(255, 255, 255, 0.05);
+  border-top-color: var(--clr-blue);
+  border-radius: 0.8rem;
+  display: none;
+  animation: loading 1s ease infinite;
+}
+
+pump-toggle[data-loading="yes"] {
+  pointer-events: none;
+}
+
+pump-toggle[data-loading="yes"] i {
+  display: none;
+}
+
+pump-toggle[data-loading="yes"]::after {
+  display: block;
+}

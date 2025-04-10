@@ -1,0 +1,10 @@
+:root {
+  --clr-blue: #0781b1;
+  --clr-green: #07b165;
+  --clr-red: #ca3a3a;
+}
+
+html[data-theme="dark"] {
+  --clr-bg: #151921;
+  --clr-surface: #1e232f;
+}

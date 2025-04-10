@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./assets/icons/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="stylesheet" href="./styles/app.css" />
+
+    <title>Home</title>
+
+    <script src="./scripts/service-worker/register-sw.js"></script>
+    <script src="./scripts/jquery.js"></script>
+    <script defer type="module" src="./scripts/app.js"></script>
+  </head>
+  <body>
+    <!-- Main application shell -->
+
+    <app>
+      <header>
+        <span>Irrigo</span>
+        <wrapper>
+          <button><guide-toggle class="icon-guide" /></button>
+          <button><theme-toggle /></button>
+        </wrapper>
+      </header>
+
+      <main>
+        <!-- Sensor Data Section -->
+        <section>
+          <header>
+            <i class="icon-info"></i>
+            <span>Sensor Values</span>
+          </header>
+          <content>
+            <sensor-card id="temperature">
+              <icon-box>
+                <i class="icon-thermo-fm"></i>
+              </icon-box>
+              <div style="width: 100%">
+                <p>Temperature&nbsp;<val>15</val>&nbsp;°C</p>
+                <progress-bar>
+                  <thumb></thumb>
+                </progress-bar>
+              </div>
+            </sensor-card>
+
+            <sensor-card id="humidity">
+              <icon-box>
+                <i class="icon-wave-fm"></i>
+              </icon-box>
+              <div style="width: 100%">
+                <p>Humidity&nbsp;<val>43</val>&nbsp;%</p>
+                <progress-bar>
+                  <thumb></thumb>
+                </progress-bar>
+              </div>
+            </sensor-card>
+
+            <sensor-card id="soil-moisture">
+              <icon-box>
+                <i class="icon-drop-fm"></i>
+              </icon-box>
+              <div style="width: 100%">
+                <p>Soil Moisture&nbsp;<val>78</val>&nbsp;%</p>
+                <progress-bar>
+                  <thumb></thumb>
+                </progress-bar>
+              </div>
+            </sensor-card>
+          </content>
+        </section>
+
+        <!-- Water Pump Controls Section -->
+        <section>
+          <header>
+            <i class="icon-controls"></i>
+            <span>Water Pump Controls</span>
+            <pump-toggle class="abs ca"><i class="icon-play"></i></pump-toggle>
+          </header>
+          <content>
+            <config-card>
+              <top>
+                <i class="icon-tree"></i>
+                <span>Type</span>
+              </top>
+              <wrapper id="plant-type"> </wrapper>
+            </config-card>
+            <config-card>
+              <top>
+                <i class="icon-tree"></i>
+                <span>Type</span>
+              </top>
+              <wrapper id="irrigation-mode"> </wrapper>
+            </config-card>
+            <config-card>
+              <top>
+                <i class="icon-tree"></i>
+                <span>Type</span>
+              </top>
+              <wrapper id="flow-duration"> </wrapper>
+            </config-card>
+          </content>
+        </section>
+
+        <!-- Board Settings Section -->
+        <section>
+          <header>
+            <i class="icon-config"></i>
+            <span>Configurations</span>
+            <button class="abs ca">Upload</button>
+          </header>
+          <content>
+            <p style="text-align: center; font-size: 1.4rem;">This section is under development!</p>
+          </content>
+        </section>
+
+        <!-- End -->
+      </main>
+
+      <footer>
+        <p>Crafted with ♥︎ and 🧠</p>
+      </footer>
+    </app>
+
+    <overlay></overlay>
+
+    <!-- Scripts -->
+  </body>
+</html>
