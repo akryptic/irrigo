@@ -166,5 +166,5 @@ isPumpOn.subscribe((state) => {
 pumpToggle.on("click", async () => {
   pumpToggle.attr("data-loading", "yes");
   // await togglePump();
-  await createPumpPromise(pumpConfig.value);
+  await createPumpPromise();
 });

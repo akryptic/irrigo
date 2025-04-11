@@ -1,5 +1,4 @@
 node_modules/
-pwa/build/
 pwa/fake.html
 pwa/package.json
 pwa/package-lock.json

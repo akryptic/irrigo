@@ -1,8 +1,8 @@
 import { updateSensorData } from "./irrigo/api.js";
-import { rejectPump, resolvePump } from "./irrigo/pump.js";
+import { rejectPump, resolvePump } from "./irrigo/api.js";
 import { notify } from "./notify.js";
 import { dataUtils } from "./utils.js";
-const wss = new WebSocket("ws://localhost:8080");
+const wss = new WebSocket("wss://irrigo-ptjm.onrender.com");
 
 wss.onopen = () => {
   notify.success("Connected to the websockets server");
@@ -18,6 +18,8 @@ wss.onmessage = (event) => {
 
   switch (data.type) {
     case "sensor_data":
+      console.log(data.payload);
+
       updateSensorData(data.payload);
       break;
     case "cmd-res":
@@ -29,6 +31,23 @@ wss.onmessage = (event) => {
         rejectPump("Cannot turn on/off the pump");
       }
       break;
+
+    case "board-connection-update":
+      console.log(data.payload);
+      if (data.payload.connected) {
+        notify.success("Board connected");
+      } else {
+        notify.error("Board disconnected!");
+        updateSensorData({
+          humidity: 0,
+          temperature: 0,
+          soilMoisture: 0,
+        }); // Clear sensor data
+      }
+      break;
+    default:
+      console.log("Unknown message type");
+      break;
   }
 };
 
@@ -36,16 +55,14 @@ wss.onmessage = (event) => {
  *
  * @param {"pump-on"|"pump-off"} command
  */
-export function sendCommand(command, options) {
-  console.log(
-    dataUtils.encode({ type: "command", payload: { command, options } })
-  );
+export function sendCommand(command) {
+  console.log(dataUtils.encode({ type: "command", payload: { command } }));
 
   wss.send(
     dataUtils.encode({
       role: "web-app",
       type: "command",
-      payload: { command, options },
+      payload: { command },
     })
   );
   notify.success(`Command sent: ${command}`);
